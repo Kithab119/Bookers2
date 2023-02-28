@@ -1,7 +1,9 @@
+<%= render 'header' %>
+
 <div class="container px-5 px-sm-0">
   <div class="row">
 
-    <%= render 'list', users: @users %>
+    <%= render 'list', user: @user %>
 
     <div class="col-md-8 offset-md-1">
 
@@ -30,9 +32,4 @@
   </div>
 </div>
 
-
-<div class="row">
-  <div class="mx-auto">
-    <footer>CopyRight Infratop.inc</footer>
-  </div>
-</div>
+<%= render 'footer' %>
