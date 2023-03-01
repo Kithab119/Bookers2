@@ -12,19 +12,54 @@
 
   <body>
     <header>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to "Sign up", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "Log in", new_user_session_path %>
-        </li>
-    <% end %>
+      <nav class="navbar bg-dark">
+        <div class="container">
+
+          <a class="navbar-brand text-light" href="https://207195ef7ba042289353eb499a15aa92.vfs.cloud9.ap-northeast-1.amazonaws.com/">Bookers</a>
+
+          <div>
+            <% if user_signed_in? %>
+              <span>
+                <%= link_to root_path, class: "text-light" do %>
+                  <i class="fas fa-home"></i>Homes
+                <% end %>
+              </span>
+              <span>
+                <%= link_to books_path, class: "text-light" do %>
+                  <i class="fas fa-book-open"></i>Books
+                <% end %>
+              </span>
+              <span>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-light" %>
+              </span>
+            <% else %>
+              <span>
+                <%= link_to root_path, class: "text-light" do %>
+                  <i class="fas fa-home"></i>Homes
+                <% end %>
+              </span>
+              <span>
+                <%= link_to 'https://207195ef7ba042289353eb499a15aa92.vfs.cloud9.ap-northeast-1.amazonaws.com/homes/about', class: "text-light" do %>
+                  <i class="fas fa-link"></i>About
+                <% end %>
+              </span>
+              <span>
+                <%= link_to new_user_registration_path, class: "text-light" do %>
+                  <i class="fas fa-user-plus"></i>Sign up
+                <% end %>
+              </span>
+              <span>
+                <%= link_to new_user_session_path, class: "text-light" do %>
+                  <i class="fas fa-sign-in-alt"></i>Log in
+                <% end %>
+              </span>
+            <% end %>
+          </div>
+
+        </div>
+      </nav>
     </header>
+
     <%= yield %>
   </body>
 </html>
