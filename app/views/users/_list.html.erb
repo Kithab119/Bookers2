@@ -4,7 +4,13 @@
 
     <table class="table">
       <tbody>
-        <tr></tr>
+        <tr>
+          <% if list.image.attached? %>
+            <%= image_tag list.image, size: "200x200" %>
+          <% else %>
+            <%= image_tag 'no-image', size: "200x200" %>
+          <% end %>
+        </tr>
         <tr>
           <th>name</th><th><%= user.name %></th>
         </tr>
