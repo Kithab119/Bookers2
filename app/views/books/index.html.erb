@@ -4,7 +4,6 @@
     <%= render 'users/list', user: current_user %>
 
     <div class="col-md-8 offset-md-1">
-
       <h2>Books</h2>
         <table class="table table-hover">
           <thead>
@@ -20,7 +19,7 @@
               <tr>
                 <td>
                   <%= link_to user_path(book.user.id) do %>
-                    <%= image_tag book.user.get_profile_image %>
+                    <%= image_tag book.user.get_profile_image(70, 70) %>
                   <% end %>
                 </td>
                 <td><%= link_to book.title, book_path(book.id)  %></td>
@@ -30,8 +29,6 @@
           </tbody>
         </table>
       </div>
-
-    </div>
 
   </div>
 </div>
