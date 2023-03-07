@@ -20,7 +20,7 @@
           <div>
             <% if user_signed_in? %>
               <span>
-                <%= link_to root_path, class: "text-light" do %>
+                <%= link_to user_path(current_user.id), class: "text-light" do %>
                   <i class="fas fa-home"></i>Homes
                 <% end %>
               </span>
@@ -33,7 +33,9 @@
                 <% end %>
               </span>
               <span>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-light" %>
+                <%= link_to destroy_user_session_path, method: :delete, class: "text-light" do %>
+                  <i class="fas fa-sign-out-alt"></i>Log out
+                <% end %>
               </span>
             <% else %>
               <span>
@@ -42,7 +44,7 @@
                 <% end %>
               </span>
               <span>
-                <%= link_to 'https://207195ef7ba042289353eb499a15aa92.vfs.cloud9.ap-northeast-1.amazonaws.com/homes/about', class: "text-light" do %>
+                <%= link_to about_path, class: "text-light" do %>
                   <i class="fas fa-link"></i>About
                 <% end %>
               </span>
